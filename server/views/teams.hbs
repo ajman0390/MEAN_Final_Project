@@ -1,0 +1,55 @@
+<!-- Added CSS file-->
+  <link rel='stylesheet' href='/stylesheets/main.css' />
+
+<main class="container ">
+
+    <div class="shadow-lg p-3 mb-5" id="teamSearchDiv">
+
+      <!-- Message at top of Form -->
+      <h3>Heroes</h3>
+      <small>A variety of Heroes.</small>
+      <hr />
+      
+
+      <!-- Search Dropdown -->
+      <div class="form-group row">
+        <div class="input-group">
+          <label class="col-sm-2 col-form-label" for="inputTeamDropdown">Search Heroes</label>
+          <div class="col-md-4">
+            <select class="form-control" id="inputTeamDropdown" name="inputTeamDropdown" aria-label="Teams Dropdown">
+              <option value="zero" selected>Select One...</option>
+            </select>
+          </div>
+
+          <!-- Form Add and Reset Btns -->
+          <div class="text-center col">
+            <button type="button" class="btn btn-outline-primary btn-lg" name="showAllBtn" id="showAllBtn">Show All</button> 
+            <button type="reset" class="btn btn-outline-danger btn-lg" id="resetBtn">Reset</button>
+            <button type="button" class="btn btn-outline-warning btn-lg text-right" id="addTeamBtn" disabled >Add Team</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+      <label for="powers" class="col-sm-2 col-form-label">Super Powers</label>
+    <div class="col-md-3">
+      <select class="form-control selectors" id="powers" name="powers">
+        <option value="Any" selected>Any Powers</option>
+        <option value="Superpowers">Super Powers Only</option>
+        <option value="noSuperpowers">No Super Powers Only</option>
+      </select>
+    </div>    
+  </div>
+
+      <!-- Table for displaying searched teams -->
+      <div class="container col-md-8" id="teamSearchTableDiv">
+        <table class="table table-striped table-hover table-bordered" id="teamSearchTable">
+        </table>
+      </div>
+
+    </div>
+
+  </main> <!-- /container -->
+
+  {{> scripts}}
+<script src="/javascripts/teams.js"></script>

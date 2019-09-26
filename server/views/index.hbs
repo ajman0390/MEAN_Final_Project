@@ -1,0 +1,58 @@
+<!-- Added CSS file-->
+  <link rel='stylesheet' href='/stylesheets/main.css' />
+
+  
+
+<main>
+
+    <!-- Jumbotron -->
+    <div class="container">
+      <div class="jumbotron text-white rounded shadow">
+        <div class="text-center" id="jumboText">
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Columns of text for the leagues below the jumbotron -->
+      <div class="row" id="leagueArea">
+      </div><!-- / Leagues Row -->
+
+      <!-- Search Btn -->
+      {{!-- <div class="row mt-3">
+        <div class="text-center col">
+          <button type="button" class="btn btn-outline-primary btn-lg" name="showAllBtn" id="searchBtn">Search</button>
+        </div>
+      </div> --}}
+
+    </div><!-- /.container -->
+
+
+    <!-- Search Btn -->
+<div class="container">
+    <div class="row mt-3 mb-3">
+            <div class="text-center col">
+              <button type="button" class="btn btn-outline-primary btn-lg" name="leaguesBtn" id="leaguesBtn">Log In</button>
+            </div>
+          </div>
+
+          <!-- Search Btn -->
+      <div class="row mt-3">
+            <div class="text-center col">
+              <button type="button" class="btn btn-outline-primary btn-lg" name="teamsBtn" id="teamsBtn">Register</button>
+            </div>
+          </div>
+
+          </div>
+
+          <div class="container">
+              <div>
+                  <ul id="leageArea"></ul>
+              </div>
+          </div>
+
+  </main>
+
+{{> scripts}}
+          <script src="/javascripts/index.js"></script>
+          

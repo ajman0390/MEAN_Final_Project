@@ -1,0 +1,43 @@
+<!-- Added CSS file-->
+<link rel='stylesheet' href='/stylesheets/main.css' />
+
+<div class="container text-center">
+  <form class="form-login " id="form-login">
+    <img class="mb-4 mt-4" src="/img/lock.png" alt="Login" id="lock" />
+
+    <h1 class="h3 mb-3 font-weight-normal">Please Log In</h1>
+
+    <div>
+      <div class="form-group row justify-content-center">
+        <div class="col-md-6">
+          <input type="text" id="username" name="user_name" class="form-control" placeholder="User Name" required
+            autofocus />
+        </div>
+      </div>
+
+      <div class="form-group row justify-content-center">
+        <div class="col-md-6">
+          <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required />
+        </div>
+      </div>
+
+      <div class="form-group row justify-content-center">
+        <div class="col-md-6">
+          <button class="btn btn-lg btn-primary btn-block" type="submit" id="submitBtn">Log in</button>
+          <button class="btn btn-lg btn-info btn-block hidden" type="button" id="logoutBtn">Log out</button>
+          <button class="btn btn-lg btn-info btn-block" type="button" id="homeBtn">Home</button>
+        </div>
+      </div>
+
+
+    </div>
+
+    <br />
+    <div class="alert alert-success hidden" role="alert" id="msg"></div>
+
+  </form>
+</div>
+</div>
+
+{{> scripts}}
+<script src="/javascripts/login.js"></script>
