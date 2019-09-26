@@ -9,7 +9,6 @@ var usersRouter = require('./routes/users');
 var leaguesRouter = require('./routes/leagues');
 var teamsRouter = require('./routes/teams');
 var detailsRouter = require('./routes/details');
-var memberRouter = require('./routes/member');
 var powersRouter = require('./routes/powers');
 
 var app = express();
@@ -30,8 +29,6 @@ app.use(cors({
   credentials: true
 }));
 
-
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -48,7 +45,6 @@ app.use('/users', usersRouter);
 app.use('/leagues', leaguesRouter);
 app.use('/teams', teamsRouter); 
 app.use('/details', detailsRouter);
-app.use('/member', memberRouter);
 app.use('/powers', powersRouter);
 
 
