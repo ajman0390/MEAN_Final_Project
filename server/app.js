@@ -10,6 +10,7 @@ var leaguesRouter = require('./routes/leagues');
 var teamsRouter = require('./routes/teams');
 var detailsRouter = require('./routes/details');
 var powersRouter = require('./routes/powers');
+// var adminRouter = require('./routes/admin');
 
 var app = express();
 
@@ -46,6 +47,7 @@ app.use('/leagues', leaguesRouter);
 app.use('/teams', teamsRouter); 
 app.use('/details', detailsRouter);
 app.use('/powers', powersRouter);
+// app.use('/admin', adminRouter);
 
 
 // catch 404 and forward to error handler
