@@ -4,7 +4,7 @@ var router = express.Router();
 const fs = require('fs');
 
 /* GET all users json. */
-router.get('/data', userController.displayAll); 
+router.get('/', userController.displayAll); 
 
 router.get('/update/data/:id', userController.getUserData);
 
@@ -18,7 +18,7 @@ router.post('/register', userController.createUserProfile);
 router.put('/update/:id', userController.update);
 
 /* DELETE user page. */
-router.delete('/delete/:id', userController.deleteUserProfile);
+router.delete('/:id', userController.deleteUserProfile);
 
 /* GET logout redirect to index page. */
 router.get('/logout', function(req, res, next) {

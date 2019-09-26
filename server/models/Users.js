@@ -22,6 +22,10 @@ module.exports = function(sequelize, DataTypes) {
             unique: true,
             allowNull: false
         }
+        // ,
+        // IS_ADMIN: {
+        //             type: DataTypes.BOOLEAN()
+        // }
     }, {
         tableName: 'USER'
     });
