@@ -14,6 +14,8 @@ import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
+import { LandingComponent } from './landing/landing.component';
+import { EditComponent } from './edit/edit.component';
 
 const appRoutes: Routes = [
   {path: '', component: IndexComponent},
@@ -31,7 +33,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
-    AdminComponent
+    AdminComponent,
+    LandingComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
