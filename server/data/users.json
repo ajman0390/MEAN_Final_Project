@@ -1,0 +1,47 @@
+[
+    {
+        "user_name": "Adam",
+        "password": "password456",
+        "email": "adam@aol.com"
+    },
+    {
+        "user_name": "Michele",
+        "password": "password888",
+        "email": "Michele@aol.com"
+    },
+    {
+        "user_name": "Dave",
+        "password": "password",
+        "email": "bizbaz@aol.com"
+    },
+    {
+        "user_name": "Davedd",
+        "password": "password",
+        "email": "aj@bobd.com"
+    },
+    {
+        "user_name": "Ed",
+        "password": "password",
+        "email": "ed@aol.com"
+    },
+    {
+        "user_name": "Daveddd",
+        "password": "password",
+        "email": "daveddd@dave.com"
+    },
+    {
+        "user_name": "Davedddd",
+        "password": "password",
+        "email": "davedddd@dave.com"
+    },
+    {
+        "user_name": "BizBazz",
+        "password": "password",
+        "email": "bizbazz@aol.com"
+    },
+    {
+        "user_name": "Bob",
+        "password": "password",
+        "email": "aj@bob.com"
+    }
+]

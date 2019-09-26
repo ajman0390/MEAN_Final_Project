@@ -1,0 +1,45 @@
+<!-- Added CSS file-->
+<link rel='stylesheet' href='/stylesheets/main.css' />
+
+<div class="container text-center">
+  <form class="form-login" id="form-reg" action="/login.hbs">
+    <img class="mb-4 mt-4" src="/img/lock.png" alt="Login" id="lock" />
+
+    <h1 class="h3 mb-3 font-weight-normal">Please Register</h1>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <label for="regUsername" class="sr-only">User Name</label>
+        <input type="text" id="regUsername" class="form-control" placeholder="User name" required autofocus />
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <label for="regEmail" class="sr-only">Email Address</label>
+        <input type="email" id="regEmail" class="form-control" placeholder="Email address" required />
+      </div>
+    </div>
+
+    <div class="form-group row justify-content-center">
+      <div class="col-md-6">
+        <label for="regPassword" class="sr-only">Password</label>
+        <input type="text" id="regPassword" class="form-control" placeholder="Password" required />
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="submitBtn">Submit</button>
+        <button class="btn btn-lg btn-info btn-block" type="button" id="homeBtn">Home</button>
+      </div>
+    </div>
+
+    <br />
+    <div class="alert alert-success hidden" role="alert" id="alertMsg"></div>
+
+  </form>
+</div>
+
+{{> scripts}}
+<script src="/javascripts/register.js"></script>
