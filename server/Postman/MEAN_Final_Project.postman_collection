@@ -1,55 +1,10 @@
 {
 	"info": {
-		"_postman_id": "74f4aedd-7f2a-4bd3-b515-aed4305cea3d",
+		"_postman_id": "61bcf384-b5a5-4c76-aecf-795449b0eeec",
 		"name": "MEAN_Lab2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "GET Index Page",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:3000/",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3000",
-					"path": [
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET Login Page",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:3000/users/login",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3000",
-					"path": [
-						"users",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
 		{
 			"name": "POST Login Page",
 			"request": {
@@ -72,7 +27,7 @@
 						},
 						{
 							"key": "password",
-							"value": "PASSWORD456",
+							"value": "password456",
 							"type": "text"
 						},
 						{
@@ -93,51 +48,6 @@
 					"path": [
 						"users",
 						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET Teams Page",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:3000/teams",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3000",
-					"path": [
-						"teams"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET Team Details Page",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:3000/details/1",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3000",
-					"path": [
-						"details",
-						"1"
 					]
 				}
 			},

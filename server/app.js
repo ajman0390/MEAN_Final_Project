@@ -5,7 +5,6 @@ var logger = require('morgan');
 var session = require('express-session');
 
 // Set Routers
-var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var leaguesRouter = require('./routes/leagues');
 var teamsRouter = require('./routes/teams');
@@ -23,6 +22,14 @@ app.use(function(req, res, next) {
   next();
 });
 
+const cors = require('cors');
+app.use(cors({
+  origin: [
+    "http://localhost:4200"
+  ],
+  credentials: true
+}));
+
 
 
 app.use(logger('dev'));
@@ -37,7 +44,6 @@ app.use(session({
 }));
 
 // Set Routes
-app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/leagues', leaguesRouter);
 app.use('/teams', teamsRouter); 
