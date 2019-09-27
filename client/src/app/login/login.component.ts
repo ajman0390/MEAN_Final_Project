@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { UserService } from './../providers/user.service';
+import { AuthService } from './../providers/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,11 @@ export class LoginComponent implements OnInit {
   pageTitle = 'Login';
   userName: string = '';
   password: string = '';
-
   error: boolean = false;
   errMsg: string = '';
   
   // create instance of UserService
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private authService: AuthService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -37,7 +37,13 @@ export class LoginComponent implements OnInit {
         if (data['error']) {
           this.errMsg = 'Login unsuccessful.';
           this.error = true;
+          this.authService.setAuth(false);
         } else {
+          if (data['is_Admin'] == 1)
+          {
+            this.authService.setAdmin(true);
+            this.authService.setAuth(true);
+          }
           this.router.navigate(['teams']);
         }
       });
@@ -55,16 +61,5 @@ export class LoginComponent implements OnInit {
   goHome(): void {
     this.router.navigate(['/']);
   }
-  goLogin(): void {
-    this.router.navigate(['login']);
-  }
-  goRegister(): void {
-    this.router.navigate(['register']);
-  }
-  goAdmin(): void {
-    this.router.navigate(['admin']);
-  }
-  goTeams(): void {
-    this.router.navigate(['teams']);
-  }
+
 }

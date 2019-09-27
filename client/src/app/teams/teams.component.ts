@@ -21,8 +21,7 @@ export class TeamsComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    
-    console.log(sessionStorage.getItem("userID"));
+   console.log(sessionStorage.getItem("userID"));
     // call getLeagues() method in Leagues Service
     this.leagueService.getLeagues().subscribe(data => {
       this.leagues = data;

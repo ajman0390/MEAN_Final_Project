@@ -18,5 +18,5 @@
     <br />
     <div class="alert alert-danger" role="alert" id="errMsg" *ngIf="error">{{errMsg}}</div>
     <br />Don't have an account?
-    <a href="/register" title="Register">Register.</a>
+    <a (click)="goRegister()" class="text-primary" title="Register">Register.</a>
 </div>

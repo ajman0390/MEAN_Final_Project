@@ -1,6 +1,6 @@
 <!-- Start of Nav -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark navd">
-    <a class="navbar-brand" (click)="goHome()">Home</a>
+    <a class="navbar-brand text-light" (click)="goHome()">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault"
       aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,23 +8,28 @@
 
     <div class="collapse navbar-collapse" id="navbarsDefault">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item" id="navLogIn">
+        
+        <li class="nav-item" id="navLogIn" *ngIf="!isAuth()">
           <a class="nav-link" (click)="goLogin()">Log In</a>
         </li>
 
-        <li class="nav-item" id="navReg">
+        <li class="nav-item" id="navReg" *ngIf="!isAuth()">
           <a class="nav-link" (click)="goRegister()">Register</a>
         </li>
 
-        <li class="nav-item" id="navAdmin">
+        <li *ngIf="isAuth()" class="nav-item" id="teamLink">
+            <a class="nav-link" (click)="goTeams()">Teams</a>
+        </li>
+
+        <li *ngIf="isAdmin()" class="nav-item" id="navAdmin">
           <a class="nav-link" (click)="goAdmin()">Admin</a>
         </li>
 
-        <li class="nav-item" id="navUpdate">
-          <a class="nav-link" (click)="goUpdate()">User Settings</a>
+        <li *ngIf="isAuth()" class="nav-item" id="navUpdate">
+          <a class="nav-link" (click)="goEdit()">User Settings</a>
         </li>
 
-        <li class="nav-item" id="navLogOut">
+        <li class="nav-item" id="navLogOut" *ngIf="isAuth()">
           <a class="nav-link" (click)="goLogout()">Log Out</a>
         </li>
 

@@ -2,6 +2,8 @@ const service = require('../services/service');
 
 var userController = {};
 
+// GET All User Data: 
+// http://localhost:3000/users
 userController.displayAll = (req, res) => {
   service.getAllUsers()
     .then((users) => {
@@ -46,12 +48,13 @@ userController.postLogin = (request, response) => {
       if (user == null) {
         response.statusCode = 403;
         request.session.userID = null;
-        // request.session.isAdmin = null;
+        request.session.is_Admin = null;
         response.end('Invalid Creds.');
       }
       response.statusCode = 200;
+      // request.session.id = req.params.ID;
       request.session.userID = user.ID;
-      // request.session.isAdmin = user.IS_ADMIN;
+      request.session.is_Admin = user.IS_ADMIN;
       console.log(user.ID)
       response.json(user);
     })

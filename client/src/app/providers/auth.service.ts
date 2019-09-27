@@ -10,21 +10,21 @@ import { map } from 'rxjs/operators';
 // ~ WIP ~
 // TODO: authService to auth login/is_Admin for nav links
 export class AuthService {
-  isAuthenticated: boolean = false;
-  isAdmin: boolean = false;
+  is_Authenticated: boolean = false;
+  is_Admin: boolean = false;
   // isAuth: boolean = false;
 
   setAuth(isAuthenticated: boolean): void {
-    this.isAuthenticated = isAuthenticated;
+    this.is_Authenticated = isAuthenticated;
   }
   getAuth(): boolean {
-    return this.isAuthenticated;
+    return this.is_Authenticated;
   }
   setAdmin(isAdmin: boolean): void {
-    this.isAdmin = isAdmin;
+    this.is_Admin = isAdmin;
   }
   getAdmin(): boolean {
-    return this.isAdmin;
+    return this.is_Admin;
   }
 
 }

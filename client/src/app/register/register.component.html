@@ -28,5 +28,5 @@
     <div class="container">
         <br />
         <div class="alert alert-danger" role="alert" id="errMsg" *ngIf="error">{{errMsg}}</div>
-        Already have an account? <a href="/login" title="Login">Login now.</a>
+        Already have an account? <a (click)="goLogin()" class="text-primary" title="Login">Login now.</a>
     </div>
