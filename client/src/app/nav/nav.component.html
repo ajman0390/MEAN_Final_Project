@@ -1,6 +1,6 @@
 <!-- Start of Nav -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark navd">
-    <a class="navbar-brand" href="/">Home</a>
+    <a class="navbar-brand" (click)="goHome()">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault"
       aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -9,23 +9,23 @@
     <div class="collapse navbar-collapse" id="navbarsDefault">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item" id="navLogIn">
-          <a class="nav-link" href="/login">Log In</a>
+          <a class="nav-link" (click)="goLogin()">Log In</a>
         </li>
 
         <li class="nav-item" id="navReg">
-          <a class="nav-link" href="/register">Register</a>
+          <a class="nav-link" (click)="goRegister()">Register</a>
         </li>
 
-        <li class="nav-item hidden" id="navAdmin">
-          <a class="nav-link" href="/admin">Admin</a>
+        <li class="nav-item" id="navAdmin">
+          <a class="nav-link" (click)="goAdmin()">Admin</a>
         </li>
 
-        <li class="nav-item hidden" id="navUpdate">
-          <a class="nav-link" href="/update/">User Settings</a>
+        <li class="nav-item" id="navUpdate">
+          <a class="nav-link" (click)="goUpdate()">User Settings</a>
         </li>
 
         <li class="nav-item" id="navLogOut">
-          <a class="nav-link" href="/logout">Log Out</a>
+          <a class="nav-link" (click)="goLogout()">Log Out</a>
         </li>
 
       </ul>

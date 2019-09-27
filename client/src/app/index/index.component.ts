@@ -23,6 +23,10 @@ export class IndexComponent implements OnInit {
 
   navigateToLogin(): void {
 		this.router.navigate(['login']);
-	}
+  }
+  
+  goLogin(): void {
+    this.router.navigate(['login']);
+  }
 
 }

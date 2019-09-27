@@ -52,7 +52,19 @@ export class LoginComponent implements OnInit {
     this.errMsg = '';
   }
 
-  onHome() {
+  goHome(): void {
     this.router.navigate(['/']);
+  }
+  goLogin(): void {
+    this.router.navigate(['login']);
+  }
+  goRegister(): void {
+    this.router.navigate(['register']);
+  }
+  goAdmin(): void {
+    this.router.navigate(['admin']);
+  }
+  goTeams(): void {
+    this.router.navigate(['teams']);
   }
 }
