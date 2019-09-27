@@ -68,4 +68,11 @@ export class RegisterComponent implements OnInit {
     this.errMsg = '';
   }
 
+  onHome() {
+    this.router.navigate(['/']);
+  }
+  goLogin(): void {
+    this.router.navigate(['login']);
+  }
+
 }

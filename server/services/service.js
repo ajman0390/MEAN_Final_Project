@@ -27,7 +27,7 @@ Service.getAllUsers = () => {
         })
 };
 
-// GET: http://localhost:3000/users/
+// GET: http://localhost:3000/users/:id
 Service.getUserData = (userId) => {
     return Users.findOne({where: {ID: userId}})
         .then(user => {

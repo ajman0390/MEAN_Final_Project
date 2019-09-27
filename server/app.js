@@ -10,7 +10,6 @@ var leaguesRouter = require('./routes/leagues');
 var teamsRouter = require('./routes/teams');
 var detailsRouter = require('./routes/details');
 var powersRouter = require('./routes/powers');
-// var adminRouter = require('./routes/admin');
 
 var app = express();
 
@@ -42,12 +41,16 @@ app.use(session({
 }));
 
 // Set Routes
+
+// http://localhost:3000/users
 app.use('/users', usersRouter);
+// http://localhost:3000/leagues
 app.use('/leagues', leaguesRouter);
+// http://localhost:3000/teams
 app.use('/teams', teamsRouter); 
 app.use('/details', detailsRouter);
+// http://localhost:3000/powers
 app.use('/powers', powersRouter);
-// app.use('/admin', adminRouter);
 
 
 // catch 404 and forward to error handler

@@ -1,47 +1,62 @@
 [
     {
-        "USER_NAME": "Adam",
-        "PASSWORD": "password456",
-        "EMAIL": "adam@aol.com"
+        "USER_NAME": "admin",
+        "PASSWORD": "password",
+        "EMAIL": "admin@aol.com",
+        "IS_ADMIN": 1
     },
     {
-        "USER_NAME": "Michele",
+        "USER_NAME": "Adam",
+        "PASSWORD": "password456",
+        "EMAIL": "adam@aol.com",
+        "IS_ADMIN": 1
+    },
+    {
+        "USER_NAME": "Michelle",
         "PASSWORD": "password888",
-        "EMAIL": "Michele@aol.com"
+        "EMAIL": "Michele@aol.com",
+        "IS_ADMIN": 0
     },
     {
         "USER_NAME": "Dave",
         "PASSWORD": "password",
-        "EMAIL": "bizbaz@aol.com"
+        "EMAIL": "bizbaz@aol.com",
+        "IS_ADMIN": 0
     },
     {
         "USER_NAME": "Davedd",
         "PASSWORD": "password",
-        "EMAIL": "aj@bobd.com"
+        "EMAIL": "aj@bobd.com",
+        "IS_ADMIN": 0
     },
     {
         "USER_NAME": "Ed",
         "PASSWORD": "password",
-        "EMAIL": "ed@aol.com"
+        "EMAIL": "ed@aol.com",
+        "IS_ADMIN": 0
     },
     {
         "USER_NAME": "Daveddd",
         "PASSWORD": "password",
-        "EMAIL": "daveddd@dave.com"
+        "EMAIL": "daveddd@dave.com",
+        "IS_ADMIN": 0
     },
     {
         "USER_NAME": "Davedddd",
         "PASSWORD": "password",
-        "EMAIL": "davedddd@dave.com"
+        "EMAIL": "davedddd@dave.com",
+        "IS_ADMIN": 0
     },
     {
         "USER_NAME": "BizBazz",
         "PASSWORD": "password",
-        "EMAIL": "bizbazz@aol.com"
+        "EMAIL": "bizbazz@aol.com",
+        "IS_ADMIN": 0
     },
     {
         "USER_NAME": "Bob",
         "PASSWORD": "password",
-        "EMAIL": "aj@bob.com"
+        "EMAIL": "aj@bob.com",
+        "IS_ADMIN": 0
     }
 ]

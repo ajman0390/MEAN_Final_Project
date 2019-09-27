@@ -7,19 +7,27 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 
-import { UserService } from './providers/user.service';
 import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
+import { EditComponent } from './edit/edit.component';
+import { TeamsComponent } from './teams/teams.component';
+
+import { UserService } from './providers/user.service';
+import { LeagueService } from './providers/leagues.service';
+import { TeamService } from './providers/teams.service';
+
 
 const appRoutes: Routes = [
   {path: '', component: IndexComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'admin', component: AdminComponent}
+  {path: 'admin', component: AdminComponent},
+  {path: 'edit', component: EditComponent},
+  {path: 'teams', component: TeamsComponent}
 ];
 
 @NgModule({
@@ -31,7 +39,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
-    AdminComponent
+    AdminComponent,
+    EditComponent,
+    TeamsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +49,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService],
+  providers: [UserService, LeagueService, TeamService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

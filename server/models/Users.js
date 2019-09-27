@@ -21,11 +21,12 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING(200),
             unique: true,
             allowNull: false
+        },
+        IS_ADMIN: {
+            type: DataTypes.INTEGER(1),
+            allowNull: false,
+            defaultValue: 0
         }
-        // ,
-        // IS_ADMIN: {
-        //             type: DataTypes.BOOLEAN()
-        // }
     }, {
         tableName: 'USER'
     });
