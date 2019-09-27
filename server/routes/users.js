@@ -15,7 +15,7 @@ router.post('/login', userController.postLogin);
 router.post('/register', userController.createUserProfile); 
 
 /* PUT user page. */
-router.put('/update/:id', userController.update);
+router.put('/:id', userController.update);
 
 /* DELETE user page. */
 router.delete('/:id', userController.deleteUserProfile);
