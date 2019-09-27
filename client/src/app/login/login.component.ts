@@ -39,11 +39,12 @@ export class LoginComponent implements OnInit {
           this.error = true;
           this.authService.setAuth(false);
         } else {
-          if (data['is_Admin'] == 1)
+          if (data['IS_ADMIN'])
           {
             this.authService.setAdmin(true);
             this.authService.setAuth(true);
           }
+          this.authService.setAuth(true);
           this.router.navigate(['teams']);
         }
       });
