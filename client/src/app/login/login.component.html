@@ -10,7 +10,8 @@
             <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" placeholder="Enter your Password" required />
         </div>
         <button type="submit" class="btn btn-primary" id="loginBtn" (click)="onSubmit()">Login</button>
-        <button type="reset" class="btn btn-secondary" id="resetBtn" (click)="onReset()">Reset</button>
+        &nbsp;<button type="reset" class="btn btn-danger" id="resetBtn" (click)="onReset()">Reset</button>
+        &nbsp;<button type="button" class="btn btn-secondary" id="homeBtn" (click)="onHome()">Home</button>
     </form>
 </div>
 <div class="container">

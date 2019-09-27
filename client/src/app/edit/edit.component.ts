@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from './../providers/user.service';
+
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-edit',
@@ -7,10 +10,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
+  user: any = {};
+  ID: number = sessionStorage.userID;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit() {
+    // call getLeagues() method in Leagues Service
+    
+    this.userService.getUser(this.ID).subscribe(data => {
+      this.user = data;
+    });
   }
 
 }

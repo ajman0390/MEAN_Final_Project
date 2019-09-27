@@ -68,4 +68,8 @@ export class RegisterComponent implements OnInit {
     this.errMsg = '';
   }
 
+  onHome() {
+    this.router.navigate(['/']);
+  }
+
 }

@@ -7,23 +7,24 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 
+// ~ WIP ~
+// TODO: authService to auth login/is_Admin for nav links
 export class AuthService {
   isAuthenticated: boolean = false;
   isAdmin: boolean = false;
+  // isAuth: boolean = false;
 
-  private leaguesEndpoint: string = 'http://localhost:3000/leagues/data';
-	private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json'
-    }),
-    withCredentials:true
-  }; 
-  
-  constructor(private http: HttpClient) { }
-
-  getLeagues(): Observable<any> {
-    return this.http.get(this.leaguesEndpoint, this.httpOptions)
-      .pipe(map(res => <any[]>res));
+  setAuth(isAuthenticated: boolean): void {
+    this.isAuthenticated = isAuthenticated;
+  }
+  getAuth(): boolean {
+    return this.isAuthenticated;
+  }
+  setAdmin(isAdmin: boolean): void {
+    this.isAdmin = isAdmin;
+  }
+  getAdmin(): boolean {
+    return this.isAdmin;
   }
 
 }

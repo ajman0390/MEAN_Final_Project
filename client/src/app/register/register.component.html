@@ -21,7 +21,8 @@
                 <input type="password" class="form-control" id="confirm" name="confirm" [(ngModel)]="confirmPass" placeholder="Confirm your password" required />
             </div>
             <input type="submit" class="btn btn-primary" (click)="onSubmit()" />
-            <input type="reset" class="btn btn-secondary" id="resetBtn" (click)="onReset()" />
+            &nbsp;<input type="reset" class="btn btn-danger" id="resetBtn" (click)="onReset()" />
+            &nbsp;<button type="button" class="btn btn-secondary" id="homeBtn" (click)="onHome()">Home</button>
         </form>
     </div>
     <div class="container">

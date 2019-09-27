@@ -41,5 +41,10 @@ export class UserService {
     return this.http.put(`${this.usersEndpoint}${userId}`, this.httpOptions)
       .pipe(map(res => <any[]>res));
   }
+
+  getUser(userId: number) {
+    return this.http.get(`${this.usersEndpoint}${userId}`, this.httpOptions)
+      .pipe(map(res => <any[]>res));
+  }
   
 }
