@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
           this.errMsg = 'Login unsuccessful.';
           this.error = true;
         } else {
-          this.router.navigate(['admin']);
+          this.router.navigate(['teams']);
         }
       });
     }

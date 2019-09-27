@@ -1,6 +1,5 @@
 const service = require('../services/service');
 
-
 var userController = {};
 
 userController.displayAll = (req, res) => {
@@ -18,13 +17,15 @@ userController.displayAll = (req, res) => {
     });
 };
 
+// GET User Data: 
+// http://localhost:3000/users/:id
 userController.getUserData = (req, res) => {
   console.log(req.params.id)
   let userId = req.params.id;
   service.getUserData(userId)
     .then((user) => {
       if (user == null) {
-        res.end('Updating User error. dddd');
+        res.end('Updating User error.');
       }  
       res.json(user); 
     })
@@ -34,6 +35,8 @@ userController.getUserData = (req, res) => {
     });
 };
 
+// POST User Login: 
+// http://localhost:3000/users/login
 userController.postLogin = (request, response) => {
   console.log(request.body.password);
   service.authUser(
@@ -42,18 +45,15 @@ userController.postLogin = (request, response) => {
     .then((user) => {
       if (user == null) {
         response.statusCode = 403;
-        // sessionStorage.setItem("user_name", null)
-        request.session.user_name = null;
+        request.session.userID = null;
+        // request.session.isAdmin = null;
         response.end('Invalid Creds.');
       }
       response.statusCode = 200;
-      response.json(user);
-      // sessionStorage.setItem("user_name", request.body.user_name);
-      session.user_name = user.USER_NAME;
-      session.userId = user.ID;
+      request.session.userID = user.ID;
+      // request.session.isAdmin = user.IS_ADMIN;
       console.log(user.ID)
-      
-      
+      response.json(user);
     })
     .catch((err) => {
       console.log(`Reading User error: ${err}`);
@@ -61,6 +61,8 @@ userController.postLogin = (request, response) => {
     });
 };
 
+// POST Register User: 
+// http://localhost:3000/users/register
 userController.createUserProfile = (request, response) => {
   service.createUserProfile(
     { USER_NAME: request.body.user_name, PASSWORD: request.body.password, EMAIL: request.body.email }
@@ -76,7 +78,8 @@ userController.createUserProfile = (request, response) => {
     });
 };
 
-// PUT: http://localhost:3000/users/update/:id
+// PUT: User Update:
+// http://localhost:3000/users/:id
 userController.update = (req, res) => {
   service.update({
           userId: req.params.id,
@@ -93,7 +96,8 @@ userController.update = (req, res) => {
       });
 };
 
-// DELETE: http://localhost:3000/users/delete/:id
+// DELETE: User:
+// http://localhost:3000/users/:id
 userController.deleteUserProfile = (req, res) => {
   let userId = req.params.id;
   service.deleteUserProfile(userId)
@@ -108,6 +112,14 @@ userController.deleteUserProfile = (req, res) => {
           console.log(`Deleting User error: ${err}`);
           res.end('Deleting User error.');
       });
+};
+
+// GET: Logout
+userController.getLogout = (req, res) =>
+{
+    req.session.userID = null;
+    req.session.isAdmin = null;
+    res.redirect('/');
 };
 
 module.exports = userController;
