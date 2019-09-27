@@ -12,6 +12,7 @@ import { FormControl } from '@angular/forms';
 export class EditComponent implements OnInit {
   user: any = {};
   ID: number = sessionStorage.userID;
+  userName: string = '';
 
   constructor(private router: Router, private userService: UserService) {}
 
@@ -20,6 +21,7 @@ export class EditComponent implements OnInit {
     
     this.userService.getUser(this.ID).subscribe(data => {
       this.user = data;
+      this.userName = this.user.userName
     });
   }
 

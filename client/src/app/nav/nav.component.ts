@@ -9,14 +9,10 @@ import { AuthService } from './../providers/auth.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  private authenticated: boolean = false;
-  private administrator: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
-    this.authenticated = this.authService.getAuth();
-    this.administrator = this.authService.getAdmin();
   }
 
   isAuth(): boolean {
@@ -26,6 +22,7 @@ export class NavComponent implements OnInit {
     return this.authService.getAdmin();
   }
 
+  // Nav function links
   goHome(): void {
     this.router.navigate(['/']);
   }
@@ -45,6 +42,8 @@ export class NavComponent implements OnInit {
     this.router.navigate(['teams']);
   }
   goLogout(): void {
+    this.authService.setAdmin(false);
+    this.authService.setAuth(false);
     this.router.navigate(['/']);
   }
 
