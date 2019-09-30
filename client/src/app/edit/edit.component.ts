@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router , ActivatedRoute} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from './../providers/user.service';
+import { AuthService } from './../providers/auth.service';
 
 import { FormControl } from '@angular/forms';
 
@@ -11,6 +12,7 @@ import { FormControl } from '@angular/forms';
 })
 export class EditComponent implements OnInit {
   sub: any;
+  oldUserData: any = {};
   user: any = {};
   ID: number = 0;
   userName: string = '';
@@ -19,9 +21,17 @@ export class EditComponent implements OnInit {
   error: boolean = false;
   errMsg: string = '';
 
-  constructor(private router: Router, private route: ActivatedRoute, private userService: UserService) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private userService: UserService,
+    private authService: AuthService
+  ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
+    if (!(this.authService.getAuth())) {
+      this.router.navigate(['/']);
+    }
 
     this.sub = this.route
       .queryParams
@@ -29,10 +39,11 @@ export class EditComponent implements OnInit {
         this.ID = params['ID'];
         // this.userName = params['username'];
       });
-      console.log(this.ID)
-    
+    console.log(this.ID)
+
     this.userService.getUser(this.ID).subscribe(data => {
       this.user = data;
+      this.oldUserData = data;
       this.userName = this.user.USER_NAME;
       this.password = this.user.PASSWORD;
       this.email = this.user.EMAIL;
@@ -62,4 +73,17 @@ export class EditComponent implements OnInit {
     }
   }
 
+  onDelete(userId: number): void {
+    // Call UserService to delete User
+    this.userService.deleteUser(this.ID).subscribe(data => {
+      // this.router.navigate(['admin']);
+      window.location.reload();
+    });
+  }
+
+  onReset(): void {
+    this.userName = this.oldUserData.USER_NAME;
+    this.password = this.oldUserData.PASSWORD;
+    this.email = this.oldUserData.EMAIL;
+  };
 }

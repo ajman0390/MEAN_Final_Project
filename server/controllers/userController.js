@@ -49,10 +49,9 @@ userController.postLogin = (request, response) => {
         response.statusCode = 403;
         request.session.userID = null;
         request.session.is_Admin = null;
-        response.end('Invalid Creds.');
+        response.end('error: Invalid Creds.');
       }
       response.statusCode = 200;
-      // request.session.id = req.params.ID;
       request.session.userID = user.ID;
       request.session.is_Admin = user.IS_ADMIN;
       console.log(user.ID)
