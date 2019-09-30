@@ -37,8 +37,8 @@ export class UserService {
     .pipe(map(res => <any[]>res));
   }
 
-  updateUser(userId: number) {
-    return this.http.put(`${this.usersEndpoint}${userId}`, this.httpOptions)
+  updateUser(userId: number, userName: string, userEmail: string, userPassword: string) {
+    return this.http.put(`${this.usersEndpoint}${userId}`, {user_name : userName, email : userEmail, password : userPassword}, this.httpOptions)
       .pipe(map(res => <any[]>res));
   }
 

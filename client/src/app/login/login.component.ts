@@ -10,6 +10,7 @@ import { AuthService } from './../providers/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  ID: number;
   pageTitle = 'Login';
   userName: string = '';
   password: string = '';
@@ -42,10 +43,12 @@ export class LoginComponent implements OnInit {
           if (data['IS_ADMIN'])
           {
             this.authService.setAdmin(true);
-            this.authService.setAuth(true);
+          } else {
+            this.authService.setAdmin(false);
           }
           this.authService.setAuth(true);
-          this.router.navigate(['teams']);
+          this.ID = data['ID'];
+          this.router.navigate(['teams'], { queryParams: { ID: this.ID } });
         }
       });
     }
@@ -61,6 +64,10 @@ export class LoginComponent implements OnInit {
 
   goHome(): void {
     this.router.navigate(['/']);
+  }
+
+  goRegister(): void {
+    this.router.navigate(['register']);
   }
 
 }

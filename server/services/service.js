@@ -49,7 +49,7 @@ Service.createUserProfile = (userObj) => {
         })
 };
 
-// PUT: http://localhost:3000/users/update/:id 
+// PUT: http://localhost:3000/users/:id 
 Service.update = (userObj) => {
     return Users.update({ EMAIL: userObj.email, PASSWORD:  userObj.password }, { returning: true, where: { ID: userObj.userId } })
         .then(user => {
@@ -60,7 +60,7 @@ Service.update = (userObj) => {
         })
 };
 
-// DELETE: http://localhost:3000/users/delete/:id
+// DELETE: http://localhost:3000/users/:id
 Service.deleteUserProfile = (userId) => {
     return Users.destroy(
         {returning: true, where: { ID: userId } }
