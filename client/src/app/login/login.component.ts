@@ -10,7 +10,7 @@ import { AuthService } from './../providers/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  ID: number;
+  ID: number = 0;
   pageTitle = 'Login';
   userName: string = '';
   password: string = '';
@@ -48,7 +48,8 @@ export class LoginComponent implements OnInit {
           }
           this.authService.setAuth(true);
           this.ID = data['ID'];
-          this.router.navigate(['teams'], { queryParams: { ID: this.ID } });
+          this.authService.setID(this.ID);
+          this.router.navigate(['teams']);
         }
       });
     }

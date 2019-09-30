@@ -56,7 +56,7 @@
                 <tr *ngFor="let team of teams">
                     <td>{{team.TeamName}}</td>
                     <td>{{team.ManagerName}}</td>
-                    <td>{{team.TeamName}}</td>
+                    <td><button type="button" class="btn btn-info btn-sm btn-edit"                     (click)="goDetails(team.TeamId)">Details</button></td>
                 </tr>
             </tbody>
         </table>

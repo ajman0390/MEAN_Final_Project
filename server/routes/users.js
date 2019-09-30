@@ -27,7 +27,7 @@ router.put('/:id', userController.update);
 router.delete('/:id', userController.deleteUserProfile);
 
 /* GET logout redirect to index page. */
-// http://localhost:3000/
+// http://localhost:3000/users/logout
 router.get('/logout', userController.getLogout);
 
 module.exports = router;
