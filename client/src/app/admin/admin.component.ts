@@ -11,7 +11,7 @@ import { User } from '../models/user.model';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-
+  pageTitle = 'Admin';
   users: Array<User> = [];
 
   // create instance of UserService
@@ -24,24 +24,27 @@ export class AdminComponent implements OnInit {
 
     this.userService.getUsers().subscribe(data => {
       data.forEach((user, index) => {
-        this.users.push(new User(user.ID, user.USER_NAME, user.EMAIL, user.PASSWORD, user.is_Admin));
+        if (!user.IS_ADMIN){
+          this.users.push(new User(user.ID, user.USER_NAME, user.EMAIL, user.PASSWORD, user.IS_ADMIN));
+        }
+        
       })
     });
   }
 
-  onDelete(userId: number): void {
-    // Call UserService to delete User
-    this.userService.deleteUser(userId).subscribe(data => {
-      // this.router.navigate(['admin']);
-      // window.location.reload();
-    });
-  }
+  // onDelete(userId: number): void {
+  //   // Call UserService to delete User
+  //   this.userService.deleteUser(userId).subscribe(data => {
+  //     // this.router.navigate(['admin']);
+  //     // window.location.reload();
+  //   });
+  // }
 
   // onEdit(userId: number): void {
   //   // Call UserService to delete User
-  //   this.userService.updateUser(userId).subscribe(data => {
-  //     this.router.navigate(['edit']);
+  //   // this.userService.updateUser(userId).subscribe(data => {
+  //     this.router.navigate(['edit'], { queryParams: { ID: userId } });
   //     // window.location.reload();
-  //   });
+    
   // }
 }

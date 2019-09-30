@@ -24,11 +24,16 @@ export class RegisterComponent implements OnInit {
   ngOnInit() { }
 
   onSubmit(): void {
+    const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
     if (this.userName == '') {
       this.errMsg = 'User name is required.';
       this.error = true;
     } else if (this.email == '') {
       this.errMsg = 'Email Address is required.';
+      this.error = true;
+    } else if (!emailPattern.test(this.email)) {
+      this.errMsg = 'Valid Email Address is required.';
       this.error = true;
     } else if (this.password == '') {
       this.errMsg = 'Password is required.';

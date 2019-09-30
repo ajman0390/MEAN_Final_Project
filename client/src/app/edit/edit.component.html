@@ -16,8 +16,10 @@
                 <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" aria-describedby="passwordHelp" placeholder="Enter a Password" readonly />
                 <small id="passwordHelp" class="form-text text-muted">Password must be at least 8 characters.</small>
             </div>
-            <input type="submit" class="btn btn-primary" (click)="onSubmit()" />
-            &nbsp;<input type="reset" class="btn btn-secondary" id="resetBtn" (click)="onReset()" />
+            <button type="button" class="btn btn-primary" (click)="onSubmit()">Update</button>
+            &nbsp;<button type="button" class="btn btn-secondary" id="resetBtn" (click)="onReset()">Reset</button>
+            &nbsp;<button type="button" class="btn btn-danger btn-delete" value="{{user.userId}}"
+                            (click)="onDelete(user.userId)">Delete</button>
         </form>
     </div>
     <div class="container">

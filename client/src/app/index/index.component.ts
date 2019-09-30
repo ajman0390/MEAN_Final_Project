@@ -20,10 +20,6 @@ export class IndexComponent implements OnInit {
       this.leagues = data;
     });
   }
-
-  navigateToLogin(): void {
-		this.router.navigate(['login']);
-  }
   
   goLogin(): void {
     this.router.navigate(['login']);

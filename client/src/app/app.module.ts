@@ -19,6 +19,7 @@ import { TeamsComponent } from './teams/teams.component';
 import { UserService } from './providers/user.service';
 import { LeagueService } from './providers/leagues.service';
 import { TeamService } from './providers/teams.service';
+import { DetailsComponent } from './details/details.component';
 
 
 const appRoutes: Routes = [
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'admin', component: AdminComponent},
   {path: 'edit', component: EditComponent},
-  {path: 'teams', component: TeamsComponent}
+  {path: 'teams', component: TeamsComponent},
+  {path: 'details', component: DetailsComponent}
 ];
 
 @NgModule({
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     AdminComponent,
     EditComponent,
-    TeamsComponent
+    TeamsComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

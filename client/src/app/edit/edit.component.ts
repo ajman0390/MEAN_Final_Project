@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router , ActivatedRoute} from '@angular/router';
+import { Router } from '@angular/router';
 import { UserService } from './../providers/user.service';
-
-import { FormControl } from '@angular/forms';
+import { AuthService } from './../providers/auth.service';
 
 @Component({
   selector: 'app-edit',
@@ -10,7 +9,8 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  sub: any;
+  pageTitle = 'Edit User Profile';
+  oldUserData: any = {};
   user: any = {};
   ID: number = 0;
   userName: string = '';
@@ -19,20 +19,23 @@ export class EditComponent implements OnInit {
   error: boolean = false;
   errMsg: string = '';
 
-  constructor(private router: Router, private route: ActivatedRoute, private userService: UserService) {}
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private authService: AuthService
+  ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
+    if (!(this.authService.getAuth())) {
+      this.router.navigate(['/login']);
+    }
 
-    this.sub = this.route
-      .queryParams
-      .subscribe(params => {
-        this.ID = params['ID'];
-        // this.userName = params['username'];
-      });
-      console.log(this.ID)
-    
+    this.ID = this.authService.getID();
+    // console.log(this.ID)
+
     this.userService.getUser(this.ID).subscribe(data => {
       this.user = data;
+      this.oldUserData = data;
       this.userName = this.user.USER_NAME;
       this.password = this.user.PASSWORD;
       this.email = this.user.EMAIL;
@@ -40,11 +43,22 @@ export class EditComponent implements OnInit {
   }
 
   onSubmit(): void {
+    const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
     if (this.userName == '') {
       this.errMsg = 'User name is required.';
       this.error = true;
     } else if (this.email == '') {
-      this.errMsg = 'Email is required.';
+      this.errMsg = 'Email Address is required.';
+      this.error = true;
+    } else if (!emailPattern.test(this.email)) {
+      this.errMsg = 'Valid Email Address is required.';
+      this.error = true;
+    } else if (this.password == '') {
+      this.errMsg = 'Password is required.';
+      this.error = true;
+    } else if (this.password.length < 8) {
+      this.errMsg = 'Password must be at least 8 chars.';
       this.error = true;
     } else {
       this.error = false;
@@ -56,10 +70,29 @@ export class EditComponent implements OnInit {
           this.errMsg = 'Update unsuccessful.';
           this.error = true;
         } else {
-          this.router.navigate(['teams'], { queryParams: { ID: this.ID } });
+          this.router.navigate(['teams']);
         }
       });
     }
   }
 
+  onDelete(userId: number): void {
+    // Call UserService to delete User
+    this.userService.deleteUser(this.ID).subscribe(data => {
+      this.goLogout();
+    });
+  }
+
+  onReset(): void {
+    this.userName = this.oldUserData.USER_NAME;
+    this.password = this.oldUserData.PASSWORD;
+    this.email = this.oldUserData.EMAIL;
+  };
+
+  goLogout(): void {
+    this.authService.setAdmin(false);
+    this.authService.setAuth(false);
+    this.authService.setID(null);
+    this.router.navigate(['/']);
+  }
 }

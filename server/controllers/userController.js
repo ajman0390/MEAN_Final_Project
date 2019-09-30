@@ -46,21 +46,23 @@ userController.postLogin = (request, response) => {
   )
     .then((user) => {
       if (user == null) {
-        response.statusCode = 403;
+        // response.statusCode = 403;
         request.session.userID = null;
         request.session.is_Admin = null;
-        response.end('Invalid Creds.');
+        response.json({'error': 'Invalid Creds.'});
       }
       response.statusCode = 200;
-      // request.session.id = req.params.ID;
       request.session.userID = user.ID;
       request.session.is_Admin = user.IS_ADMIN;
       console.log(user.ID)
       response.json(user);
     })
     .catch((err) => {
-      console.log(`Reading User error: ${err}`);
-      response.end('Reading User error.');
+      request.session.userID = null;
+      request.session.is_Admin = null;
+      response.statusCode = 403;
+      console.log(`Login User error: ${err}`);
+      response.end('Login User error.');
     });
 };
 
@@ -76,8 +78,8 @@ userController.createUserProfile = (request, response) => {
     })
     .catch((err) => {
       console.log(`Creating User error: ${err}`);
-      response.statusCode = 403; // Forbidden
-      response.end('Creating User error.');
+      // response.statusCode = 403; // Forbidden
+      response.json({'error': 'Creating User error.'});
     });
 };
 
@@ -118,6 +120,7 @@ userController.deleteUserProfile = (req, res) => {
 };
 
 // GET: Logout
+// http://localhost:3000/users/logout
 userController.getLogout = (req, res) =>
 {
     req.session.userID = null;
