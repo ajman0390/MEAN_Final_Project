@@ -65,12 +65,12 @@ export class EditComponent implements OnInit {
       this.errMsg = '';
 
       // Call userService to edit
-      this.userService.updateUser(this.ID, this.userName, this.email, this.password).subscribe(data => {
+      this.userService.updateUser(this.ID, this.email).subscribe(data => {
         if (data['error']) {
           this.errMsg = 'Update unsuccessful.';
           this.error = true;
         } else {
-          this.router.navigate(['teams']);
+          this.ngOnInit();
         }
       });
     }
