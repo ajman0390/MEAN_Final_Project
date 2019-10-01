@@ -8,8 +8,9 @@ import { map } from 'rxjs/operators';
 })
 export class TeamService {
   teams: Array<string> = [];
+  teamID: number = 0;
 
-  private teamsEndpoint: string = 'http://localhost:3000/teams/data';
+  private teamsEndpoint: string = 'http://localhost:3000/teams/data/';
 	private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json'
@@ -22,5 +23,20 @@ export class TeamService {
   getTeams(): Observable<any> {
     return this.http.get(this.teamsEndpoint, this.httpOptions)
       .pipe(map(res => <any[]>res));
+  }
+
+  getTeamData(team_Id: number): Observable<any> {
+    return this.http.get(this.teamsEndpoint + team_Id, this.httpOptions)
+      .pipe(map(res => <any[]>res));
+  }
+
+  // Set User ID
+  setTeamID(team_Id: number): void {
+    this.teamID = team_Id;
+  }
+  
+  // Get User ID
+  getTeamID(): number {
+    return this.teamID;
   }
 }

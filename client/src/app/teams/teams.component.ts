@@ -40,7 +40,8 @@ export class TeamsComponent implements OnInit {
   }
 
   goDetails(teamId: number): void {
-    this.router.navigate(['details'], { queryParams: { TeamId: teamId } });
+    this.router.navigate(['details']);
+    this.authService.setID(teamId);
   }
 
 }
