@@ -9,6 +9,7 @@ import { TeamService } from './../providers/teams.service';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
+  // declare elements
   pageTitle = 'Team Profile';
   sub: any;
   teamMembers: Array<string> = [];
@@ -40,9 +41,10 @@ export class DetailsComponent implements OnInit {
       this.router.navigate(['/login']);
     }
 
-    this.teamID = this.authService.getID();
+    this.teamID = this.teamService.getTeamID();
     console.log(this.teamID)
 
+    // set elements values based on GET team data request for a specific team
     this.teamService.getTeamData(this.teamID).subscribe(data => {
       this.team = data;
       this.oldTeamData = data;
@@ -63,11 +65,11 @@ export class DetailsComponent implements OnInit {
     // defining the "top"
     @ViewChild('top', { static: false }) top: ElementRef
     // function for the scroll
-  
     goToTop(): void {
       this.top.nativeElement.scrollIntoView({ behavior: 'smooth'})
     }
 
+    // go to Teams page
     goTeams(): void {
       this.router.navigate(['/teams']);
     }

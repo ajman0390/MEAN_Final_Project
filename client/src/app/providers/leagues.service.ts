@@ -20,6 +20,7 @@ export class LeagueService {
   
   constructor(private http: HttpClient) { }
 
+  // GET All Leagues Data
   getLeagues(): Observable<any> {
     return this.http.get(this.leaguesEndpoint, this.httpOptions)
       .pipe(map(res => <any[]>res));

@@ -20,13 +20,15 @@ export class TeamService {
 
   constructor(private http: HttpClient) { }
 
+  // send GET request for all teams
   getTeams(): Observable<any> {
     return this.http.get(this.teamsEndpoint, this.httpOptions)
       .pipe(map(res => <any[]>res));
   }
 
+  // send GET request for specific teams
   getTeamData(team_Id: number): Observable<any> {
-    return this.http.get(this.teamsEndpoint + team_Id, this.httpOptions)
+    return this.http.get(`${this.teamsEndpoint}${team_Id}`, this.httpOptions)
       .pipe(map(res => <any[]>res));
   }
 

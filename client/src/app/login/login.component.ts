@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit(): void {
+    // Validate user inputs
     if (this.userName == '') {
       this.errMsg = 'User name is required.';
       this.error = true;
@@ -55,6 +56,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  // reset and set clear values 
   onReset(): void {
     this.userName = '';
     this.password = '';
@@ -63,10 +65,12 @@ export class LoginComponent implements OnInit {
     this.errMsg = '';
   }
 
+  // go to Home page view
   goHome(): void {
     this.router.navigate(['/']);
   }
 
+  // go to Register page view
   goRegister(): void {
     this.router.navigate(['register']);
   }

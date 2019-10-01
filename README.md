@@ -44,8 +44,6 @@ http://localhost:3000/teams
 
 ### Technologies
 - HTML5/CSS3/Bootstrap4
-- JavaScript
-- jQuery
 - Node.js
 - ProgreSQL
 

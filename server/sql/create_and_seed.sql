@@ -1,65 +1,22 @@
-#MySQL example for ref only, not to be used in this App
+create database hca;
+use hca;
 
-drop database DEMO;
-create database DEMO;
-use DEMO;
-
-CREATE TABLE USER (
-       ID INT (11) NOT NULL AUTO_INCREMENT
-     , USER_NAME VARCHAR(100) NOT NULL
-     , PASSWORD VARCHAR(100) NOT NULL
-	 , createdAt  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-	 , updatedAt  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-     , PRIMARY KEY (ID)
+create table USER (
+	ID		 	int(10) NOT NULL AUTO_INCREMENT, 
+	USER_NAME 	varchar(255) NOT NULL, 
+	PASSWORD	     varchar(255) NOT NULL,
+	EMAIL 		varchar(255) NOT NULL,
+	IS_ADMIN	     smallint(1) NOT NULL DEFAULT 0,
+	createdAt      TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	updatedAt      TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	UNIQUE		UQ_USER_1 (USER_NAME),
+	PRIMARY KEY(ID)
 );
 
-CREATE TABLE USER (
-       ID INT (11) NOT NULL AUTO_INCREMENT
-     , MANUFACTURER_ID INT (11) NOT NULL
-     , MODEL VARCHAR(25) NOT NULL
-     , YEAR VARCHAR(4) NOT NULL
-     , MSRP VARCHAR(6) NOT NULL
-	 , createdAt  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-	 , updatedAt  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-     , UNIQUE UQ_AUTO_1 (MODEL, YEAR)
-     , PRIMARY KEY (ID)
-     , CONSTRAINT FK_AUTO_1 FOREIGN KEY (MANUFACTURER_ID)
-                            REFERENCES MANUFACTURER (ID)
-);
+#INSERT INTO User (user_name, password, email, is_admin) VALUES ('Admin', 'password', 'admin@test.com', 1);
+#INSERT INTO User (user_name, password, email, is_admin) VALUES ('Foobar', 'password123', 'foobar@test.com', 0);
+#INSERT INTO User (user_name, password, email, is_admin) VALUES ('Bizbaz', 'password456', 'bizbaz@test.com', 0);
 
-insert into manufacturer (name) values ('Tesla');
-insert into manufacturer (name) values ('Porche');
-
-insert into automobile (manufacturer_id, model, year, msrp) values (1, 'Model S', '2014', '38,500');
-insert into automobile (manufacturer_id, model, year, msrp) values (1, 'Model S', '2019', '81,500');
-insert into automobile (manufacturer_id, model, year, msrp) values (1, 'Model 3', '2019', '45,000');
-insert into automobile (manufacturer_id, model, year, msrp) values (1, 'Model X', '2016', '64,500');
-insert into automobile (manufacturer_id, model, year, msrp) values (1, 'Model X', '2019', '82,500');
-
-insert into automobile (manufacturer_id, model, year, msrp) values (2, '718', '2019', '56,900');
-insert into automobile (manufacturer_id, model, year, msrp) values (2, '911', '2019', '97,400');
-insert into automobile (manufacturer_id, model, year, msrp) values (2, 'Cayman', '2019', '86,300');
-
-
-
-#SELECT * FROM manufacturer;
-#SELECT * FROM manufacturer WHERE id = 1;
-#SELECT * FROM manufacturer WHERE name = 'Tesla';
-#SELECT name FROM manufacturer WHERE id = 1;
-#SELECT id FROM manufacturer WHERE name = 'Tesla';
-
-#SELECT * FROM automobile;
-#SELECT * FROM automobile WHERE manufacturer_id = 1;
-
-#SELECT * FROM automobile WHERE  manufacturer_id in (SELECT id FROM manufacturer WHERE name = 'Tesla');
-#SELECT id, model, year, msrp FROM automobile WHERE  manufacturer_id in (SELECT id FROM manufacturer WHERE name = 'Porche');
-
-#INSERT INTO automobile (manufacturer_id, model, year, msrp) VALUES (2, 'Macan', '2019', '49,900');
-#SELECT * FROM automobile;
-
-#UPDATE automobile SET msrp = '50,500' WHERE manufacturer_id = 2 AND model = 'Macan';
-#SELECT * FROM automobile;
-
-#DELETE FROM automobile WHERE manufacturer_id = 2 AND model = 'Macan';
-#SELECT * FROM automobile;
- 
+#SELECT * FROM user;
+#SELECT * FROM user WHERE is_admin = 1;
+#SELECT * FROM user WHERE user_name = 'Foobar';

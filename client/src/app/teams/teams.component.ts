@@ -39,9 +39,11 @@ export class TeamsComponent implements OnInit {
 
   }
 
+  // go to Details page view
   goDetails(teamId: number): void {
+    console.log(teamId)
+    this.teamService.setTeamID(teamId);
     this.router.navigate(['details']);
-    this.authService.setID(teamId);
   }
 
 }

@@ -24,8 +24,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit() { }
 
   onSubmit(): void {
+    // email pattern for email validation
     const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
+    // check user inputs for validation
     if (this.userName == '') {
       this.errMsg = 'User name is required.';
       this.error = true;
@@ -63,6 +65,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  // reset and reset values
   onReset(): void {
     this.userName = '';
     this.email = '';
@@ -73,9 +76,12 @@ export class RegisterComponent implements OnInit {
     this.errMsg = '';
   }
 
+  // go to Index page view
   onHome() {
     this.router.navigate(['/']);
   }
+  
+  // go to Login page view
   goLogin(): void {
     this.router.navigate(['login']);
   }
