@@ -1,4 +1,4 @@
-# MEAN_Final_Project Repository for the Capstone Project - Hip to be Square!
+# MEAN_Final_Project Repository for the Capstone Project - Heroes League!
 
 ![IndexPage](client/src/assets/img/index.png "IndexPage")
 
