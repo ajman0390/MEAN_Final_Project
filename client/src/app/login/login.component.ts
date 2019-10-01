@@ -11,7 +11,7 @@ import { AuthService } from './../providers/auth.service';
 })
 export class LoginComponent implements OnInit {
   ID: number = 0;
-  pageTitle = 'Login';
+  pageTitle = 'Please Login';
   userName: string = '';
   password: string = '';
   error: boolean = false;
