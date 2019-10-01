@@ -68,4 +68,8 @@ export class DetailsComponent implements OnInit {
       this.top.nativeElement.scrollIntoView({ behavior: 'smooth'})
     }
 
+    goTeams(): void {
+      this.router.navigate(['/teams']);
+    }
+
 }

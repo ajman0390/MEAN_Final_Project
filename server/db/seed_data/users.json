@@ -2,7 +2,7 @@
     {
         "USER_NAME": "admin",
         "PASSWORD": "password",
-        "EMAIL": "admin@aol.com",
+        "EMAIL": "admin@test.com",
         "IS_ADMIN": 1
     },
     {
@@ -24,39 +24,21 @@
         "IS_ADMIN": 0
     },
     {
-        "USER_NAME": "Davedd",
-        "PASSWORD": "password",
-        "EMAIL": "aj@bobd.com",
-        "IS_ADMIN": 0
-    },
-    {
         "USER_NAME": "Ed",
         "PASSWORD": "password",
         "EMAIL": "ed@aol.com",
         "IS_ADMIN": 0
     },
     {
-        "USER_NAME": "Daveddd",
-        "PASSWORD": "password",
-        "EMAIL": "daveddd@dave.com",
-        "IS_ADMIN": 0
-    },
-    {
-        "USER_NAME": "Davedddd",
-        "PASSWORD": "password",
-        "EMAIL": "davedddd@dave.com",
-        "IS_ADMIN": 0
-    },
-    {
-        "USER_NAME": "BizBazz",
-        "PASSWORD": "password",
-        "EMAIL": "bizbazz@aol.com",
-        "IS_ADMIN": 0
-    },
-    {
         "USER_NAME": "Bob",
         "PASSWORD": "password",
-        "EMAIL": "aj@bob.com",
+        "EMAIL": "bob@bob.com",
+        "IS_ADMIN": 0
+    },
+    {
+        "USER_NAME": "BizBaz",
+        "PASSWORD": "password",
+        "EMAIL": "bizbazz@test.com",
         "IS_ADMIN": 0
     }
 ]
