@@ -2,19 +2,23 @@
         <h1 class="offset-md-4">{{pageTitle}}</h1>
     <div class="container offset-md-3">
         <form id="registerForm">
+            <!-- Email field -->
             <div class="form-group">
                 <label for="email">Email Address</label>
                 <input type="email" class="form-control col-md-6" id="email" name="email" [(ngModel)]="email" aria-describedby="emailHelp" placeholder="Enter your Email Address" required/>
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
+            <!-- Form Btns -->
             <button type="button" class="btn btn-primary" (click)="onSubmit()">Update</button>
             &nbsp;<button type="button" class="btn btn-secondary" id="resetBtn" (click)="onReset()">Reset</button>
             &nbsp;<button type="button" class="btn btn-danger btn-delete" value="{{user.userId}}"
                             (click)="onDelete(user.userId)">Delete</button>
+            &nbsp;<button type="button" class="btn btn-warning" id="cancelBtn" (click)="goTeams()">Cancel</button>
         </form>
     </div>
-    <div class="container">
+    <!-- Error and Success Msg Divs -->
+    <div class="container offset-md-3">
         <br />
-        <div class="alert alert-danger" role="alert" id="errMsg" *ngIf="error">{{errMsg}}</div>
-        <!-- Already have an account? <a href="/login" title="Login">Login now.</a> -->
+        <div class="alert alert-danger col-md-6" role="alert" id="errMsg" *ngIf="error">{{errMsg}}</div>
+        <div class="alert alert-success col-md-6" role="alert" *ngIf="success" id="successArea">{{successMsg}}</div>
     </div>

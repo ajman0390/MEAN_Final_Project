@@ -9,6 +9,7 @@ import { AuthService } from './../providers/auth.service';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
+  // declare elements
   pageTitle = 'Edit User Profile';
   oldUserData: any = {};
   user: any = {};
@@ -18,6 +19,8 @@ export class EditComponent implements OnInit {
   email: string = '';
   error: boolean = false;
   errMsg: string = '';
+  success: boolean = false;
+  successMsg: string = '';
 
   constructor(
     private router: Router,
@@ -33,6 +36,7 @@ export class EditComponent implements OnInit {
     this.ID = this.authService.getID();
     // console.log(this.ID)
 
+    // set elements values based on GET user data request for a specific user
     this.userService.getUser(this.ID).subscribe(data => {
       this.user = data;
       this.oldUserData = data;
@@ -43,8 +47,10 @@ export class EditComponent implements OnInit {
   }
 
   onSubmit(): void {
+    // email pattern for email validation
     const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
+    // check user inputs for validation
     if (this.userName == '') {
       this.errMsg = 'User name is required.';
       this.error = true;
@@ -67,15 +73,23 @@ export class EditComponent implements OnInit {
       // Call userService to edit
       this.userService.updateUser(this.ID, this.email).subscribe(data => {
         if (data['error']) {
-          this.errMsg = 'Update unsuccessful.';
+          this.errMsg = 'User Update unsuccessful.';
           this.error = true;
         } else {
-          this.ngOnInit();
+          this.successMsg = 'User Update Successful.';
+          this.success = true;
+          this.router.navigate(['edit']);
         }
       });
     }
   }
 
+  // go to Teams page view
+  goTeams(): void {
+    this.router.navigate(['/teams']);
+  }
+
+  // delete user
   onDelete(userId: number): void {
     // Call UserService to delete User
     this.userService.deleteUser(this.ID).subscribe(data => {
@@ -83,12 +97,16 @@ export class EditComponent implements OnInit {
     });
   }
 
+  // reset and set values to old data, prior to any user input changes
   onReset(): void {
     this.userName = this.oldUserData.USER_NAME;
     this.password = this.oldUserData.PASSWORD;
     this.email = this.oldUserData.EMAIL;
+    this.error = false;
+    this.success = false;
   };
 
+  // go logout the user, set Admin, Auth values to false, User ID to null
   goLogout(): void {
     this.authService.setAdmin(false);
     this.authService.setAuth(false);

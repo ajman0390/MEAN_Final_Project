@@ -42,8 +42,6 @@ GET http://localhost:3000/leagues/data/:id
 
 ## Technologies
 - HTML5/CSS3/Bootstrap4
-- JavaScript
-- jQuery
 - Node.js
 - ProgreSQL
 
@@ -84,7 +82,8 @@ $ node seed
 
 ### Input and Outputs for Testing:
 **POST Login**
-POST http://localhost:3000/users/login
+http://localhost:3000/users/login
+
 Input:
 ```
 username: req.body.user_name
@@ -111,7 +110,8 @@ Output (Negative):
 ```
 
 **POST Register**
-POST http://localhost:3000/users/register
+http://localhost:3000/users/register
+
 Input:
 ```
 username: req.body.user_name
@@ -138,7 +138,8 @@ Output (Negative):
 ```
 
 **EDIT user**
-PUT http://localhost:3000/users/30
+http://localhost:3000/users/30
+
 Input:
 ```
 email: req.body.email
@@ -168,7 +169,8 @@ Output (Negative):
 ```
 
 **DELETE user**
-DELETE http://localhost:3000/users/20
+http://localhost:3000/users/20
+
 Output (Positive):
 ```
 1
@@ -179,7 +181,7 @@ Output (Negative):
 ```
 
 **GET User Data**
-GET http://localhost:3000/users/
+http://localhost:3000/users/
 
 Output (Positive):
 ```
@@ -219,7 +221,8 @@ No Users found
 ```
 
 **GET Leagues Data**
-GET http://localhost:3000/leagues/data
+http://localhost:3000/leagues/data
+
 Output (Positive):
 ```
 [
@@ -251,7 +254,8 @@ Output (Negative):
 ```
 
 **GET Teams Data**
-GET http://localhost:3000/teams/data
+http://localhost:3000/teams/data
+
 Output (Positive):
 ```
 [
@@ -306,7 +310,8 @@ Output (Negative):
 ```
 
 **GET Teams Data by Team Id**
-GET http://localhost:3000/teams/data/2
+http://localhost:3000/teams/data/2
+
 Output (Positive):
 ```
 {

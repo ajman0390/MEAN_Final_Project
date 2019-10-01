@@ -21,6 +21,7 @@ export class IndexComponent implements OnInit {
     });
   }
   
+  // go to Login page view
   goLogin(): void {
     this.router.navigate(['login']);
   }

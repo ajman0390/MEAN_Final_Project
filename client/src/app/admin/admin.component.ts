@@ -19,9 +19,10 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     if (!(this.authService.getAuth() && this.authService.getAdmin())) {
-      this.router.navigate(['login']);
+      this.router.navigate(['login']); // route to Login
     }
 
+    // Get all users in which the user is Not an Admin
     this.userService.getUsers().subscribe(data => {
       data.forEach((user, index) => {
         if (!user.IS_ADMIN){
@@ -31,20 +32,4 @@ export class AdminComponent implements OnInit {
       })
     });
   }
-
-  // onDelete(userId: number): void {
-  //   // Call UserService to delete User
-  //   this.userService.deleteUser(userId).subscribe(data => {
-  //     // this.router.navigate(['admin']);
-  //     // window.location.reload();
-  //   });
-  // }
-
-  // onEdit(userId: number): void {
-  //   // Call UserService to delete User
-  //   // this.userService.updateUser(userId).subscribe(data => {
-  //     this.router.navigate(['edit'], { queryParams: { ID: userId } });
-  //     // window.location.reload();
-    
-  // }
 }
