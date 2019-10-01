@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "61bcf384-b5a5-4c76-aecf-795449b0eeec",
-		"name": "MEAN_Lab2",
+		"_postman_id": "745e0eb8-6d9c-4f37-b0b0-94cfb2a6dd7f",
+		"name": "MEAN_Final_Project",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -59,7 +59,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:3000/users/data",
+					"raw": "http://127.0.0.1:3000/users",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -69,8 +69,7 @@
 					],
 					"port": "3000",
 					"path": [
-						"users",
-						"data"
+						"users"
 					]
 				}
 			},
@@ -93,17 +92,17 @@
 					"urlencoded": [
 						{
 							"key": "user_name",
-							"value": "Peter456",
+							"value": "Edd",
 							"type": "text"
 						},
 						{
 							"key": "email",
-							"value": "peter@test.com",
+							"value": "edd@test.com",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "password789",
+							"value": "password123",
 							"type": "text"
 						}
 					]
@@ -143,23 +142,23 @@
 					"urlencoded": [
 						{
 							"key": "user_name",
-							"value": "Adam",
+							"value": "Foobar",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "password456",
+							"value": "password123",
 							"type": "text"
 						},
 						{
 							"key": "email",
-							"value": "adam@test.com",
+							"value": "foobar123@test.com",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:3000/users/update/1",
+					"raw": "http://localhost:3000/users/30",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -167,8 +166,7 @@
 					"port": "3000",
 					"path": [
 						"users",
-						"update",
-						"1"
+						"30"
 					]
 				}
 			},
@@ -180,7 +178,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/users/delete/11",
+					"raw": "http://localhost:3000/users/20",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -188,20 +186,19 @@
 					"port": "3000",
 					"path": [
 						"users",
-						"delete",
-						"11"
+						"20"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "GET /users/update/1",
+			"name": "GET All Users",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/users/update/1",
+					"raw": "http://localhost:3000/users/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -209,8 +206,68 @@
 					"port": "3000",
 					"path": [
 						"users",
-						"update",
-						"1"
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET All Leagues",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/leagues/data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"leagues",
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET A Teams Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/teams/data/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"teams",
+						"data",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET All Teams Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/teams/data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"teams",
+						"data"
 					]
 				}
 			},
