@@ -3,7 +3,7 @@ const teamsController = require('../controllers/teamsController');
 var router = express.Router();
 var fs = require('fs');
 
-/* GET all users */
+/* GET all teams data */
 // http://localhost:3000/teams/data
 router.get('/data', teamsController.getTeamsData); 
 
